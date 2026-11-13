@@ -1,0 +1,15 @@
+Sender:
+- libdatachannel
+  - uses WebSocketServer for signaling 
+- hack the RTP header extension to zero so browsers don’t buffer frames
+- sends H264 baseline with no B frames
+- media sent via RTP over SRTP/UDP
+
+Receiver:
+- RTCPeerConnection plus a <video>
+- do the offer/browser answer over websockets
+
+MVP
+- use Ffmpeg to read a video file from disk, and send it out
+- 250 LOC-ish for sender
+- 50-100 LOC-ish for  receiver
